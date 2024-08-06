@@ -1,0 +1,44 @@
+{
+  "name": "c4c-ticket",
+  "version": "1.0.0",
+  "description": "A simple CAP project.",
+  "repository": "<Add your repository here>",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@sap-cloud-sdk/http-client": "^3.16.0",
+    "@sap/cds": "^7",
+    "express": "^4",
+    "@sap/xssec": "^3"
+  },
+  "devDependencies": {
+    "@cap-js/sqlite": "^1",
+    "@sap/cds-dk": "^7",
+    "@sap/eslint-plugin-cds": "^3",
+    "eslint": "^9"
+  },
+  "scripts": {
+    "start": "cds-serve"
+  },
+  "cds": {
+    "requires": {
+      "ticket": {
+        "kind": "odata-v2",
+        "model": "srv/external/ticket",
+        "[sandbox]": {
+          "credentials": {
+            "url": "https://sandbox.api.sap.com/sap/c4c/odata/v1/c4codataapi"
+          }
+        },
+        "[production]": {
+          "credentials": {
+            "destination": "demo-c4c-cap"
+          }
+        }
+      },
+      "[production]": {
+        "auth": "xsuaa"
+      }
+    }
+  }
+}

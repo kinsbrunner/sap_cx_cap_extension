@@ -1,0 +1,7 @@
+### Get Tickets
+GET http://localhost:4004/odata/v4/ticket/ServiceReq?$count=true
+Content-Type: application/json
+
+### Trigger custom action
+POST http://localhost:4004/odata/v4/ticket/ServiceReq/151591/updateParentTicketStatus
+Content-Type: application/json
